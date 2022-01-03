@@ -6,6 +6,7 @@ int cycle;
 double v1 ;
 double v2;
 double value;
+boolean published=false;
 String q1;
 String q2;
 boolean busy;
@@ -40,7 +41,7 @@ public boolean willGrab(String tag,Double value2) {
 }
 
 public void execute( int latency) {
-	if( canExecute()&&cycle<=latency) {
+	if( canExecute()&&cycle<latency) {
 	if (add==true) {
 		cycle=cycle+1;
 		value= v1+v2;
@@ -59,7 +60,7 @@ public boolean canExecute() {
 }
 public boolean canWriteBack(int latency) {
 	if(cycle==latency) {
-		
+		published=true;
 		return true;
 	}
 	return false;

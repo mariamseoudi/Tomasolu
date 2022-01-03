@@ -29,7 +29,8 @@ public class instruction {
 			}
 			else {
 				a.setQ2(regs.getReg(rx).getQj());
-			}
+			}	Reg r=regs.getReg(rd);
+			r.setQj(tag);
 			
 		}
 		else if(type.equals("SUB.D")) {
@@ -52,17 +53,18 @@ public class instruction {
 			}
 			
 		
-		
+			Reg r=regs.getReg(rd);
+			r.setQj(tag);
 			
 		}
 		
 		
-		Reg r=regs.getReg(rd);
-		r.setQj(tag);
+	
 //System.out.println("heyyy"+r.name+a.getName());
 	}
 	public void issue(RegFile regs,multiplierResStation x) {//we call it only if there is space in res station so we call it after checking the type and making sure ther is space
 		String tag="";
+	//	System.out.println("henaaaaa");
 		if(type.equals("MUL.D")) {
 			multiplier a =new multiplier("");
 			x.add(a);
@@ -81,8 +83,9 @@ public class instruction {
 			}
 			else {
 				a.setQ2(regs.getReg(rx).getQj());
-			}
-			
+			}	Reg r=regs.getReg(rd);
+			r.setQj(tag);
+			System.out.println("henaaaaa"+a.getQ1());
 		}
 		else if(type.equals("DIV.D")) {
 			multiplier a =new multiplier("");
@@ -104,14 +107,14 @@ public class instruction {
 			}
 			
 		
-		
+			Reg r=regs.getReg(rd);
+			r.setQj(tag);
 			
 		}
 		
 		
-		Reg r=regs.getReg(rd);
-		r.setQj(tag);
-//System.out.println("heyyy"+r.name+a.getName());
+	
+//System.out.println("heyyy"+r.name+r.getQj());
 	}
 
 

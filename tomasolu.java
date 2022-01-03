@@ -22,6 +22,7 @@ public class tomasolu {
 		this.ldLatency=ld;
 		regs=new RegFile();
 		adders=new adderResStation(add);
+		multipliers=new multiplierResStation( mulLatency);
 		stores=new StoreBuffer();
 		loads=new loadBuffer();
  q=new instructionQ("/Users/macbookair/eclipse-workspace/tomasoluSimulation/src/test.txt");
@@ -42,9 +43,15 @@ public class tomasolu {
 					 h.forEach((key, value)
 		                       -> 
 					adders.readFromtheBus(key, value));
+					 h.forEach((key, value)
+		                       -> 
+					multipliers.readFromtheBus(key, value));
 					 hm.forEach((key, value)
 		                       -> 
 					multipliers.readFromtheBus(key, value));
+					 hm.forEach((key, value)
+		                       -> 
+					adders.readFromtheBus(key, value));
 					 h.forEach((key, value)
 		                       -> 
 					regs.readFromTheBus(key, value));
@@ -67,9 +74,15 @@ System.out.print("cycle:"+i);
 					 h.forEach((key, value)
 		                       -> 
 					adders.readFromtheBus(key, value));
+					 h.forEach((key, value)
+		                       -> 
+					multipliers.readFromtheBus(key, value));
 					 hm.forEach((key, value)
 		                       -> 
 					multipliers.readFromtheBus(key, value));
+					 hm.forEach((key, value)
+		                       -> 
+					adders.readFromtheBus(key, value));
 					 h.forEach((key, value)
 		                       -> 
 					regs.readFromTheBus(key, value));

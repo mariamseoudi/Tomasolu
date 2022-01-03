@@ -18,6 +18,7 @@ public multiplier(String name) {
 }
 
 public boolean willGrab(String tag,Double value2) {
+
 	if(q1!="0"&&q1.equals(tag)) {
 		
 		v1=value2;
@@ -28,7 +29,8 @@ public boolean willGrab(String tag,Double value2) {
 			return true;
 			
 		}
-		return true;
+		
+		return false;
 		
 	}
 	if(q2!="0"&&q2.equals(tag)) {
@@ -40,12 +42,14 @@ public boolean willGrab(String tag,Double value2) {
 }
 
 public void execute( int latency) {
-	if( canExecute()&&cycle<=latency) {
+	if( canExecute()&&cycle<latency) {
 	if (mul==true) {
+		
 		cycle=cycle+1;
 		value= v1*v2;
 	}
 	else {
+	
 	cycle=cycle+1;
 	value= v1/v2;
 	}
@@ -115,7 +119,7 @@ public void setBusy(boolean busy) {
 public boolean isMul() {
 	return mul;
 }
-public void setMul(boolean add) {
+public void setMul(boolean mul) {
 	this.mul = mul;
 }
 

@@ -7,9 +7,9 @@ import java.util.Vector;
 
 public class multiplierResStation {
 int latency;
-multiplier a1=new multiplier("A1");
-multiplier a2=new multiplier("A2");
-multiplier a3=new multiplier("A3");
+multiplier a1=new multiplier("M1");
+multiplier a2=new multiplier("M2");
+multiplier a3=new multiplier("M3");
 
 Queue<Object> buffer = new PriorityQueue<Object> (); 
 public  multiplierResStation(int latency) {
@@ -21,19 +21,19 @@ public multiplier add(multiplier a) {
 	
 if(!a1.isBusy()) {
 		a1=a;
-		a.setName("A1");
+		a.setName("M1");
 		a.setBusy(true);
 		return a;
 	}
 	else if(!a2.isBusy()) {
 		a2=a;
-		a.setName("A2");
+		a.setName("M2");
 		a.setBusy(true);
 		return a;
 	}
 	else if(!a3.isBusy()) {
 		a3=a;
-		a.setName("A3");
+		a.setName("M3");
 		a.setBusy(true);
 		return a;
 	}
@@ -71,19 +71,20 @@ public void emptyStation(multiplier a) {
 }
 public Vector <multiplier>readFromtheBus(String tag,Double value) {
 	Vector<multiplier>a=new Vector<multiplier>();
+
 	if(a1.willGrab(tag, value)) {
 		a.add(a1);
-		System.out.println("a1"+"grabbed");
+		System.out.println("M1"+"grabbed");
 		
 	}
 	if(a2.willGrab(tag, value)) {
 		a.add(a2);
-		System.out.println("a2"+"grabbed");
+		System.out.println("M2"+"grabbed");
 		
 	}
 	if(a3.willGrab(tag, value)) {
 		a.add(a3);
-		System.out.println("a3"+"grabbed");
+		System.out.println("M3"+"grabbed");
 		
 	}return a;
 }
